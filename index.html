@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Listing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header with logo and site name -->
+        <header>
+            <img src="images/doctor.png" alt="Logo" class="logo">
+            <h1>Doctor Finder</h1>
+        </header>
+
+        <!-- Autocomplete Search Bar -->
+        <div class="search-container">
+            <input type="text" id="autocomplete-input" placeholder="Search for doctors..." data-testid="autocomplete-input">
+            <button id="clear-search-btn" class="btn-clear"><i class="fas fa-times-circle"></i> Clear Search</button>
+        </div>
+
+        <!-- Active Filters -->
+        <div id="active-filters" class="active-filters"></div>
+
+        <!-- Filter Panel -->
+        <div class="filter-panel">
+            <!-- Consultation Type -->
+            <div class="filter-group">
+                <div class="filter-header" data-testid="filter-header-moc">Consultation Type</div>
+                <label><input type="radio" name="consultation" value="video" data-testid="filter-video-consult"> Video Consult</label>
+                <label><input type="radio" name="consultation" value="clinic" data-testid="filter-in-clinic"> In Clinic</label>
+            </div>
+
+            <!-- Specialties Filters -->
+            <div class="filter-group">
+                <div class="filter-header" data-testid="filter-header-speciality">Specialties</div>
+                <label><input type="checkbox" value="General Physician" class="specialty" data-testid="filter-specialty-General-Physician"> General Physician</label>
+                <label><input type="checkbox" value="Dentist" class="specialty" data-testid="filter-specialty-Dentist"> Dentist</label>
+                <label><input type="checkbox" value="Cardiologist" class="specialty" data-testid="filter-specialty-Cardiologist"> Cardiologist</label>
+                <label><input type="checkbox" value="Dermatologist" class="specialty" data-testid="filter-specialty-Dermatologist"> Dermatologist</label>
+            </div>
+
+            <!-- Sort Filters -->
+            <div class="filter-group">
+                <div class="filter-header" data-testid="filter-header-sort">Sort</div>
+                <select id="sort-options" data-testid="sort-fees">
+                    <option value="fees">Sort by Fees (Asc)</option>
+                    <option value="experience">Sort by Experience (Desc)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Doctor List -->
+        <div id="doctor-list" class="doctor-list"></div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="pagination"></div>
+
+        <!-- Loading Spinner -->
+        <div id="loading" class="spinner" style="display: none;"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
